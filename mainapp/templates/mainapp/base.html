@@ -11,21 +11,25 @@
             grandperents {
                 display: flex;
                 flex-direction: column;
-                width: 1210px;
-                margin-left: auto;
-                margin-right: auto;
-                border: 1px solid black;
+                width: 100%;
+<!--                border: 1px solid black;-->
 <!--                background: url(https://github.com/yodo-im/python_pizza/blob/main/fon/fon.jpg?raw=true);-->
             }
             perents {
                 height: 200px;
                 flex: 1;
-                width: 1210px;
-                border: 1px solid black;
+                width: 100%;
+<!--                border: 1px solid black;-->
+                flex-wrap: wrap;
             }
             body {
                 margin: 0px;
                 padding: 0px;
+                min-width: 360px;
+                max-width: 1210px;
+
+                margin-left: auto;
+                margin-right: auto;
             }
             h1, text {
                 color: black;
@@ -53,12 +57,16 @@
     </head>
     <body>
 
+        </divstyle>
         <grandperents>
 
             <perents>
                 {% include 'mainapp/headers.html' %}
-            </perents>
 
+            </perents>
+            <div>
+                v.3
+            </div>
             <perents style="height: 400px;">
                 {% block solid %}{% endblock %}
             </perents>

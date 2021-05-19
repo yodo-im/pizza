@@ -26,9 +26,10 @@
         headers {
             display: flex;
             flex-direction: row;
+            flex-grow: 1;
             height: 100px;
             align-items: center;
-            width: 1010px;
+            width: 100%;
         }
         header {
             padding: 10px;
@@ -37,13 +38,13 @@
     </style>
 
     <headers>
-        <header style="width: 500px">
+        <header style="flex-grow: 2;">
             <h1>
-                Python pizza v2
+                Python pizza
             </h1>
         </header>
 
-        <header style="width: 300px;">
+        <header>
             <text>
                 Пн-Вс с 7.00 до 23.00 <br>
                 Тел.: 8-800-xxx-xx-xx

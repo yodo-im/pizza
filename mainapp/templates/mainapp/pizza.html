@@ -4,6 +4,11 @@
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
+            flex: 1 0 auto;
+        }
+        filling{
+            display: flex;
+            flex-direction: column;
         }
         .heading{
             font-family: Open Sans;
@@ -37,22 +42,24 @@
                 {{ product.description }}
             </text>
         </filling>
-        <filling style="">
+        <filling style="display: flex; flex-direction: row; flex-grow: 1; justify-content: center;
+                        align-items:center;">
 <!--            Цена-->
-            <h7 style="top: 10px">
-                {{ product.price }}р
-            </h7>
+            <fill>
+                <h7>
+                    {{ product.price }}р
+                </h7>
+            </fill>
 <!--            Кнопка покупки-->
-            <form action="{% url 'cart:cart_add' product.id %}" method="post">
-                <button style="position:relative; left:150px; top: -35px; margin: 10px;
-            padding: 5px;
-            border-radius: 20px;">
-                    Заказать
-                </button>
-                {{ cart_product_form }}
-                {% csrf_token %}
-
-            </form>
+            <fill>
+                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                    <button style="margin: 10px; padding: 5px; border-radius: 20px;">
+                        Заказать
+                    </button>
+                    {{ cart_product_form }}
+                    {% csrf_token %}
+                </form>
+            </fill>
         </filling>
     </dough>
 </div>
