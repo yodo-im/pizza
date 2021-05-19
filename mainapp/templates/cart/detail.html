@@ -1,0 +1,111 @@
+{% extends "mainapp/base.html" %}
+
+{% block title %}
+  Корзина
+{% endblock %}
+
+{% block solid %}
+<div>
+    <style>
+        detai {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        detail {
+            display: flex;
+            flex-direction: row;
+            margin: 10px;
+            padding: 15px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background: white;
+            justify-content: space-around;
+            align-content: stretch;
+            width: 100%;
+        }
+        det {
+            margin: 10px;
+            width: 50px;
+            padding: 15px;
+
+            }
+        .heading{
+            font-family: Open Sans;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+        }
+        .description{
+            font-family: Open Sans;
+            font-size: 12px;
+            font-weight: 100;
+            color: #757575;
+        }
+    </style>
+
+    <detai>
+        <detail>
+          <det>Картинка</det>
+          <det>Товар</det>
+          <det>Обновить количество</det>
+          <det>Удалить</det>
+<!--          <det>Кол-во</det>-->
+          <det>Цена за шт</det>
+          <det>Общая стоимость</det>
+        </detail>
+        {% for item in cart %}
+            {% with product=item.product %}
+            <detail>
+                <det>
+                    <a href="{{ product.get_absolute_url }}">
+                        <img src="{{ product.image_url }}"
+                        width="100px" height="100px" alt="">
+                    </a>
+                </det>
+                <det>
+                    {{ product.name }}
+                </det>
+                <det>
+                    <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                        <center>{{ item.update_quantity_form.quantity }}</center>
+                {{ item.update_quantity_form.update }}
+
+                <button style="margin: 10px;
+		    padding: 5px;
+		    border-radius: 20px;">
+		    Обновить цену
+            	</button>
+                {% csrf_token %}
+              </form>
+                </det>
+                <det>
+                    <form action="{% url 'cart:cart_remove' product.id %}">
+                        {% csrf_token %}
+                        <button style="margin: 10px;
+		    padding: 5px;
+		    border-radius: 20px;">
+                            Удалить
+                        </button>
+                    </form>
+                </det>
+<!--                <det>-->
+<!--                    {{ item.quantity }}-->
+<!--                </det>-->
+                <det>{{ item.price }}р</det>
+                <det>{{ item.total_price }}р</det>
+              </detail>
+            {% endwith %}
+        {% endfor %}
+    </detai>
+    <form action="{% url 'orders:order_create' %}">
+    	<button style="margin: 10px;
+            padding: 15px;
+            border-radius: 20px;">
+    		Заказать
+    	</button>
+    </form>
+</div>
+
+{% endblock %}

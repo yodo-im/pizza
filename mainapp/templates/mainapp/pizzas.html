@@ -1,0 +1,30 @@
+<div>
+    <style>
+        pizzas {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        pizza {
+            margin: 10px;
+            width: 20%;
+            padding: 15px;
+<!--            border: 1px solid black;-->
+            border-radius: 20px;
+            background: white;
+        }
+    </style>
+    	{% for category in categories %}
+	    <pizzas>
+		{% for product in products %}
+			{% if product.category == category %}
+				<pizza>
+				    {% include 'mainapp/pizza.html' %}
+				</pizza>
+			{% endif %}
+		{% endfor %}
+		
+	    </pizzas>
+	{% endfor %}
+</div>

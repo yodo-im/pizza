@@ -1,0 +1,147 @@
+{% extends "mainapp/base.html" %}
+
+{% block title %}
+  Корзина
+{% endblock %}
+
+{% block solid %}
+<div>
+    <style>
+        details {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        detail {
+            display: flex;
+            flex-direction: row;
+        }
+        .heading{
+            font-family: Open Sans;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+        }
+        .description{
+            font-family: Open Sans;
+            font-size: 12px;
+            font-weight: 100;
+            color: #757575;
+        }
+    </style>
+
+    <details>
+        <detail>
+          <det>Картинка</det>
+          <det>Товар</det>
+          <det>Обновить кол-во</det>
+          <det>Удалить</det>
+          <det>Кол-во</det>
+          <det>Цена за шт</det>
+          <det>Общая стоимость</det>
+        </detail>
+        {% for item in cart %}
+            {% with product=item.product %}
+            <detail>
+                <det>
+                    <a href="{{ product.get_absolute_url }}">
+                        <img src="{{ product.image_url }}"
+                        width="100px" height="100px" alt="">
+                    </a>
+                </det>
+                <det>
+                    {{ product.name }}
+                </det>
+                <det>
+                    <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                        {{ item.update_quantity_form.quantity }}
+                        {{ item.update_quantity_form.update }}
+                        <input type="submit" value="Обновить цену">
+                        {% csrf_token %}
+                    </form>
+                </det>
+                <det>
+                    <form action="{% url 'cart:cart_remove' product.id %}">
+                        <button>
+                            Удалить
+                        </button>
+                    </form>
+                </det>
+                <det>
+                    {{ item.quantity }}
+                </det>
+                <det>{{ item.price }}р</det>
+                <det>{{ item.total_price }}р</det>
+              </detail>
+            {% endwith %}
+        {% endfor %}
+    </details>
+</div>
+{% endblock %}
+<style>
+  tbody {background:white}
+</style>
+  <table>
+    <thead>
+      <tr>
+        <th>Картинка</th>
+        <th>Товар</th>
+        <th>Обновить кол-во</th>
+        <th>Удалить</th>
+        <th>Кол-во</th>
+        <th>Цена за шт</th>
+        <th>Общая стоимость</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart %}
+        {% with product=item.product %}
+          <tr>
+            <td>
+              <a href="{{ product.get_absolute_url }}">
+                <img src="{{ product.image_url }}"
+                width="100px" height="100px" alt="">
+              </a>
+            </td>
+            <td>{{ product.name }}</td>
+            <td>
+              <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                {{ item.update_quantity_form.quantity }}
+                {{ item.update_quantity_form.update }}
+                <button style="margin: 10px;
+		    padding: 5px;
+		    border: 1px solid black;
+		    border-radius: 20px;">
+		    Обновить цену
+            	</button>
+                {% csrf_token %}
+              </form>
+            </td>
+            <td>
+            <form action="{% url 'cart:cart_remove' product.id %}">
+              <button style="margin: 10px;
+		    padding: 5px;
+		    border: 1px solid black;
+		    border-radius: 20px;">
+                Удалить
+              </button>
+            </form>
+            </td>
+            <td>
+              {{ item.quantity }}
+            </td>
+            <td class="num">{{ item.price }}р</td>
+            <td class="num">{{ item.total_price }}р</td>
+          </tr>
+        {% endwith %}
+      {% endfor %}
+      <tr class="total">
+        <td>Всего</td>
+        <td colspan="5"></td>
+        <td class="num">{{ cart.get_total_price }}р</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="text-right">
+    <a href="#" class="button">Оформить заказ</a>
+  </p>

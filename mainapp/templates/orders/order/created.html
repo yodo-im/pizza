@@ -1,0 +1,47 @@
+{% extends "mainapp/base.html" %}
+
+{% block title %}
+  Спасибо!
+{% endblock %}
+
+{% block solid %}
+<div>
+    <style>
+        sucsess {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: 400px;
+            width: 100%;
+        }
+        sucses {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+            padding: 15px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background: white;
+            justify-content: space-around;
+            align-content: stretch;
+            width: 100%;
+        }
+        det {
+            margin: 10px;
+            width: 50px;
+            padding: 15px;
+            }
+    </style>
+
+    <sucsess>
+        <sucses>
+            <center>
+                <h4>Спасибо за заказ!</h4>
+                <p>Ваш заказ успешно оформлен. Номер Вашего заказа
+                <strong>{{ order.id }}</strong>.</p>
+            </center>
+        </sucses>
+    </sucsess>
+</div>
+
+{% endblock %}

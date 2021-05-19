@@ -1,0 +1,69 @@
+{% extends "mainapp/base.html" %}
+
+{% block title %}
+  Оформление заказа
+{% endblock %}
+
+{% block solid %}
+<div>
+    <style>
+        creates {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: 400px;
+            width: 100%;
+        }
+        create {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+            padding: 15px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background: white;
+            justify-content: space-around;
+            align-content: stretch;
+        }
+        creat {
+        }
+    </style>
+
+    <created>
+        <create>
+            <center>
+                <h4>Оформление заказа</h4>
+            </center>
+        </create>
+        <create>
+        <div class="order-info">
+            <h3>Ваш заказ</h3>
+            <ul>
+                {% for item in cart %}
+                    <li>
+                        {{ item.quantity }}x {{ item.product.name }}
+                        <span>{{ item.total_price }}р</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p>Всего: {{ cart.get_total_price }}р</p>
+        </div>
+        </create>
+        <create>
+            <form method="post">
+                <creat>
+                    {{ form.as_p }}
+                </creat>
+                <button style="margin: 10px;
+		    padding: 5px;
+		    border: 1px solid black;
+		    border-radius: 20px;">
+		    Оформить заказ
+		</button>
+                {% csrf_token %}
+            </form>
+        </create>
+    </created>
+</div>
+
+{% endblock %}

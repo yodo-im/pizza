@@ -1,0 +1,38 @@
+{% extends 'mainapp/base.html' %}
+
+
+{% block title %}
+Корзина
+{% endblock %}
+
+
+{% block solid %}
+    <div>
+        <style>
+        baskets {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: raw;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            width: 1240px;
+            left:10px;
+        }
+        product {
+            padding: 5px;
+            margin: 0;
+            width:  300px;
+            height: 500px;
+        }
+    </style>
+
+        <baskets>
+            <product>
+                <h1>
+                    Корзина
+                </h1>
+            </product>
+        </baskets>
+    </div>
+{% endblock %}
