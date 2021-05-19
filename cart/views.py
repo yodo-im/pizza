@@ -18,7 +18,7 @@ def cart_add(request, product_id):
                  update_quantity=cd['update'])
     form_main = CartAddProductFormMain(request.POST)
     if form_main.is_valid():
-        cd = form_main.cleaned_data
+        cd = form.cleaned_data
         cart.add(product=product,
                  quantity=1,
                  update_quantity=cd['update'])
