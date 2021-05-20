@@ -12,7 +12,7 @@ def index(request, category_slug=None):
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
     cart_product_form = CartAddProductFormMain()
-    return render(request, 'mainapp/index.html', {
+    return render(request,  'mainapp/index.html', {
                             'categories': categories,
                             'products': products,
                             'cart_product_form': cart_product_form,
