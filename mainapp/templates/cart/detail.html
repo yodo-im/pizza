@@ -46,24 +46,22 @@
     </style>
 
     <detai>
-        <detail>
-          <det>Картинка</det>
-          <det>Товар</det>
+<!--        <detail>-->
+<!--          <det>Картинка</det>-->
+<!--          <det>Товар</det>-->
 <!--          <det>Обновить количество</det>-->
-          <det>Удалить</det>
+<!--          <det>Удалить</det>-->
 <!--          <det>Кол-во</det>-->
 <!--          <det>Цена за шт</det>-->
 <!--          <det>Общая стоимость</det>-->
-            <det>Стоимость</det>
-        </detail>
+<!--            <det>Стоимость</det>-->
+<!--        </detail>-->
         {% for item in cart %}
             {% with product=item.product %}
             <detail>
                 <det>
-                    <a href="{{ product.get_absolute_url }}">
-                        <img src="{{ product.image_url }}"
+                    <img src="{{ product.image_url }}"
                         width="100px" height="100px" alt="">
-                    </a>
                 </det>
                 <det>
                     {{ product.name }}
