@@ -6,7 +6,7 @@ class Order(models.Model):
     first_name = models.CharField('Имя', max_length=50)
     last_name = models.CharField('Фамилия', max_length=50)
     phone_number = models.CharField('Номер телефона', max_length=12)
-    address = models.CharField('Адресс', max_length=250)
+    address = models.CharField('Адрес', max_length=250)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
