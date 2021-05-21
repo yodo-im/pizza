@@ -24,12 +24,14 @@
             justify-content: space-around;
             align-content: stretch;
             width: 100%;
+            align-items:center;
         }
         det {
             margin: 10px;
             width: 50px;
             padding: 15px;
-
+            flex-grow: 1;
+            align-items:center;
             }
         .heading{
             font-family: Open Sans;
@@ -61,10 +63,12 @@
             <detail>
                 <det>
                     <img src="{{ product.image_url }}"
-                        width="100px" height="100px" alt="">
+                        width="150px" height="150px" alt="">
                 </det>
-                <det>
-                    {{ product.name }}
+                <det style="font-family: Open Sans; flex-grow: 1;">
+                    <center>
+                        {{ product.name }}
+                    </center>
                 </det>
 <!--                <det>-->
 <!--                    <form action="{% url 'cart:cart_add' product.id %}" method="post">-->
