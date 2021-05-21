@@ -39,8 +39,10 @@
 
     <headers>
         <header>
+            <a href="/">
             <img src="https://thumb.tildacdn.com/tild6230-3363-4230-a633-643464313338/-/resize/90x/-/format/webp/pyth_logo.png"
                  width="100%" height="width" alt="">
+            </a>
         </header>
         <header style="flex-grow: 2;">
             <h1>
@@ -57,11 +59,9 @@
 
         <header>
             <form action="/">
-                <button style="margin: 10px;
-            padding: 5px;
-            border-radius: 20px;">
-                    <basket style="font-size: 16px;">
-                        Главная
+                <button>
+                    <basket>
+                        ГЛАВНАЯ
                     </basket>
                 </button>
             </form>
@@ -69,11 +69,9 @@
 
         <header>
             <form action="/cart">
-                <button style="margin: 10px;
-            padding: 5px;
-            border-radius: 20px;">
-                    <basket style="font-size: 16px;">
-                        Корзина<br>{{ cart.get_total_price }}p
+                <button>
+                    <basket>
+                        КОРЗИНА<br>{{ cart.get_total_price }}Р
                     </basket>
                 </button>
             </form>
