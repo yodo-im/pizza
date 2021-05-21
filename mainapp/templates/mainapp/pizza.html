@@ -53,9 +53,12 @@
 <!--            Кнопка покупки-->
             <fill>
                 <form action="{% url 'cart:cart_add' product.id %}" method="post">
-                    <button style="margin: 10px; padding: 5px; border-radius: 20px;">
-                        Заказать
+                    <button style="margin: 10px; padding: 10px; border-radius: 10px; font-size: 10px;">
+                        ЗАКАЗАТЬ
                     </button>
+<!--                    <button style="margin: 10px; padding: 10px; border-radius: 10px;">-->
+<!--                        заказать-->
+<!--                    </button>-->
                     {{ cart_product_form }}
                     {% csrf_token %}
                 </form>

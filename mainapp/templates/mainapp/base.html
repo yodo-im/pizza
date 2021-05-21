@@ -53,6 +53,16 @@
                 width: 150px;
                 opacity: .5;
             }
+            a {
+                font-family: Open Sans;
+                color: black;
+                font-size: 16px;
+                text-decoration: none;
+                font-weight: 700;
+            }
+            a.test:hover{
+                color: #ff6900;
+            }
         </style>
     </head>
     <body>
@@ -73,12 +83,16 @@
                             flex-direction: row;">
                 {% for category in categories %}
                 <per style="padding-left: 25px;">
-                    <form action="#{{ category }}">
-                    <button style="border-radius: 20px;
-                                   font-size: 16px;">
+                    <a href="#{{ category }}" class="test">
+<!--                    <form action="#{{ category }}">-->
+<!--                    <button style="border-radius: 20px;-->
+<!--                                   border: 0px;-->
+<!--                                   font-size: 16px;-->
+<!--                                   background: white;" class="test" class="Botton">-->
                         {{ category }}
-                    </button>
-                    </form>
+<!--                    </button>-->
+<!--                    </form>-->
+                    </a>
                 </per>
                 {% endfor %}
             </perents>
