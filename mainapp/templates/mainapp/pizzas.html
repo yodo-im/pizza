@@ -15,16 +15,17 @@
             background: white;
         }
     </style>
-    	{% for category in categories %}
+	{% for category in categories %}
 	    <pizzas>
 		{% for product in products %}
 			{% if product.category == category %}
+			<a name="{{ category }}"></a>
 				<pizza>
+					<a name="{{ product.id }}"></a>
 				    {% include 'mainapp/pizza.html' %}
 				</pizza>
 			{% endif %}
-		{% endfor %}
-		
+			{% endfor %}
 	    </pizzas>
 	{% endfor %}
 </div>

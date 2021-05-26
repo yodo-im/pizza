@@ -36,7 +36,7 @@
             </center>
         </create>
         <create>
-        <div class="order-info">
+        <div class="order-info" style="font-family: Open Sans">
             <h3>Ваш заказ</h3>
             <ul>
                 {% for item in cart %}
@@ -51,15 +51,12 @@
         </create>
         <create>
             <form method="post">
-                <creat>
+                <creat sryle="font-family: Open Sans">
                     {{ form.as_p }}
                 </creat>
-                <button style="margin: 10px;
-		    padding: 5px;
-		    border: 1px solid black;
-		    border-radius: 20px;">
-		    Оформить заказ
-		</button>
+                <button>
+                    ОФОРМИТЬ ЗАКАЗ
+                </button>
                 {% csrf_token %}
             </form>
         </create>

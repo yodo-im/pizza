@@ -38,13 +38,19 @@
     </style>
 
     <headers>
+        <header>
+            <a href="/">
+            <img src="https://github.com/yodo-im/python_pizza/blob/main/logo.png?raw=true"
+                 width="80px" height="80px" alt="">
+            </a>
+        </header>
         <header style="flex-grow: 2;">
             <h1>
                 Python pizza
             </h1>
         </header>
 
-        <header>
+        <header style="flex-grow: 2;">
             <text>
                 Пн-Вс с 7.00 до 23.00 <br>
                 Тел.: 8-800-xxx-xx-xx
@@ -53,11 +59,9 @@
 
         <header>
             <form action="/">
-                <button style="margin: 10px;
-            padding: 5px;
-            border-radius: 20px;">
+                <button>
                     <basket>
-                        Главная
+                        ГЛАВНАЯ
                     </basket>
                 </button>
             </form>
@@ -65,11 +69,9 @@
 
         <header>
             <form action="/cart">
-                <button style="margin: 10px;
-            padding: 5px;
-            border-radius: 20px;">
+                <button>
                     <basket>
-                        Корзина<br>{{ cart.get_total_price }}p
+                        КОРЗИНА | {{ cart.get_total_price }}Р
                     </basket>
                 </button>
             </form>

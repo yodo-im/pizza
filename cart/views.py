@@ -22,11 +22,11 @@ def cart_add(request, product_id):
         cart.add(product=product,
                  quantity=1,
                  update_quantity=cd['update'])
-    messages.info(request, 'Товар "'+str(product)+'" добавлен в корзину')
+    messages.info(request, 'Товар "'+str(product)+'"'+'\r'+'добавлен в корзину')
     if request.POST['update'] == 'True':
         return redirect('cart:cart_detail')
     else:
-        return redirect('/')
+        return redirect('/#'+str(product_id))
 
 
 def cart_remove(request, product_id):

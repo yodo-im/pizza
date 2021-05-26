@@ -24,12 +24,14 @@
             justify-content: space-around;
             align-content: stretch;
             width: 100%;
+            align-items:center;
         }
         det {
             margin: 10px;
             width: 50px;
             padding: 15px;
-
+            flex-grow: 1;
+            align-items:center;
             }
         .heading{
             font-family: Open Sans;
@@ -46,27 +48,27 @@
     </style>
 
     <detai>
-        <detail>
-          <det>Картинка</det>
-          <det>Товар</det>
+<!--        <detail>-->
+<!--          <det>Картинка</det>-->
+<!--          <det>Товар</det>-->
 <!--          <det>Обновить количество</det>-->
-          <det>Удалить</det>
+<!--          <det>Удалить</det>-->
 <!--          <det>Кол-во</det>-->
 <!--          <det>Цена за шт</det>-->
 <!--          <det>Общая стоимость</det>-->
-            <det>Стоимость</det>
-        </detail>
+<!--            <det>Стоимость</det>-->
+<!--        </detail>-->
         {% for item in cart %}
             {% with product=item.product %}
             <detail>
                 <det>
-                    <a href="{{ product.get_absolute_url }}">
-                        <img src="{{ product.image_url }}"
-                        width="100px" height="100px" alt="">
-                    </a>
+                    <img src="{{ product.image_url }}"
+                        width="150px" height="150px" alt="">
                 </det>
-                <det>
-                    {{ product.name }}
+                <det style="font-family: Open Sans; flex-grow: 1;">
+                    <center>
+                        {{ product.name }}
+                    </center>
                 </det>
 <!--                <det>-->
 <!--                    <form action="{% url 'cart:cart_add' product.id %}" method="post">-->
@@ -84,10 +86,8 @@
                 <det>
                     <form action="{% url 'cart:cart_remove' product.id %}">
                         {% csrf_token %}
-                        <button style="margin: 10px;
-		    padding: 5px;
-		    border-radius: 20px;">
-                            Удалить
+                        <button>
+                                УДАЛИТЬ
                         </button>
                     </form>
                 </det>
@@ -95,16 +95,14 @@
 <!--                    {{ item.quantity }}-->
 <!--                </det>-->
 <!--                <det>{{ item.price }}р</det>-->
-                <det>{{ item.total_price }}р</det>
+                <det style="font-family: Open Sans;">{{ item.total_price }}р</det>
               </detail>
             {% endwith %}
         {% endfor %}
     </detai>
     <form action="{% url 'orders:order_create' %}">
-    	<button style="margin: 10px;
-            padding: 15px;
-            border-radius: 20px;">
-    		Заказать
+    	<button>
+    		ЗАКАЗАТЬ
     	</button>
     </form>
 </div>
