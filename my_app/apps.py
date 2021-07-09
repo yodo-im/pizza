@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AjaxConfig(AppConfig):
+class MyAppConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'ajax'
+    name = 'my_app'
